@@ -1,0 +1,24 @@
+@import 'navbar.css';
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&display=swap');
+
+
+
+:root {
+    font-family: 'Manrope', sans-serif;
+    --navbar: #111111;
+    --white: #F9F9F9;
+    --blue: #00a0ba;
+    --hover-btn: #333333;
+    --search-color: #282828;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.App {
+    height: 100vh;
+    width: 100%;
+}
+
