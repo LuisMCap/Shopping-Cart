@@ -29,12 +29,10 @@ const NavBar = (props) => {
             />
           </div>
           <div id="cart-logo-cont" className="info-cart">
-            <div id='cart-icon-cont'>
+            <div id="cart-icon-cont" className="cart-icon-cont">
               <img src={shoppingIcon} id="shopping-icon" />
+              <div id="cart-count">{props.cartCount}</div>
             </div>
-          </div>
-          <div id="cart-count-cont" className="info-cart">
-            <div id='cart-count'>{props.cartCount}</div>
           </div>
         </div>
       </div>

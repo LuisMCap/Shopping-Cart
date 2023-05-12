@@ -86,15 +86,16 @@
     align-items: center;
     border-radius: 8px;
 }
-#cart-icon-cont:hover{
+#cart-icon-cont:hover {
     background-color: var(--hover-btn);
 }
+
 
 #cart-count {
     position: absolute;
     width: 18px;
     height: 18px;
-    right: 65px;
+    right: 59px;
     top: 37px;
     border-radius: 10px;
     background-color: var(--white);
@@ -104,6 +105,7 @@
     align-items: center;
     color: var(--navbar);
     font-weight: 300;
+    cursor: pointer;
 }
 
 #cart-count{
