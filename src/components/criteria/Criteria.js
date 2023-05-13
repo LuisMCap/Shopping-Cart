@@ -5,8 +5,7 @@ const Criteria = (props) => {
     return (
       <div id="search-comp">
         <MiscCont img={props.img} selectedCategory={props.selectedCategory} />
-        <Filter />
-        <Filter />
+        <Filter filterBoxesCategory={props.filterBoxesCategory}/>
       </div>
     );
 }

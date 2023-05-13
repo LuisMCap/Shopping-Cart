@@ -1,14 +1,17 @@
+import Utils from "../../utils/utils";
 import CategoryBox from "./categoryBox";
 
-const FilterBox = () => {
+const FilterBox = (props) => {
     return (
       <div className="filter-box-comp">
         <span className="line"></span>
         <div className="title-cont">
-          <div className="title-category">Hola</div>
+          <div className="title-category">{props.name}</div>
         </div>
         <div className="categories-cont">
-          <CategoryBox />
+          {props.category.map(cat=>{
+            return <CategoryBox category={cat}/>
+          })}
         </div>
       </div>
     );
