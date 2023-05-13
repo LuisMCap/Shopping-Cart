@@ -56,6 +56,11 @@
     padding-bottom: 3px;
 }
 
+.link-style {
+    text-decoration: none;
+    color: inherit;
+}
+
 .info-cart {
     width: 10px;
 }
@@ -106,10 +111,6 @@
     color: var(--navbar);
     font-weight: 300;
     cursor: pointer;
-}
-
-#cart-count{
-    
 }
 
 #search-cont {

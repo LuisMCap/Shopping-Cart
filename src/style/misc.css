@@ -1,0 +1,48 @@
+#misc-cont {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+#display-info-cont {
+    height: 100%;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+#display-name-cont {
+    font-size: 2rem;
+    font-weight: bolder;
+    width: 250px;
+}
+
+#display-logo-cont {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#misc{
+    display: flex;
+}
+
+#display-image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: 22% 22%;
+    
+}
+
+
+
+
+

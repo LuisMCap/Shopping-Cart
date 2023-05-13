@@ -1,14 +1,16 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import App from "./App";
+import Home from "./App";
 import NavBar from "./components/NavBar";
+import CriteriaCont from "./components/criteria/MiscCont";
 
 const RouteSwitch = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />}>
-            <Route path="/" element= {<NavBar/>}></Route>
+        <Route path="/" element={<Home />}>
+          <Route path="/" element={<NavBar />} />
+          <Route path="/" element={<CriteriaCont />} />
         </Route>
       </Routes>
     </BrowserRouter>

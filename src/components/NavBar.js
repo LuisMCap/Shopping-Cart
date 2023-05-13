@@ -1,6 +1,7 @@
 import '../style/index.css'
 import searchIcon from '../assets/icons8-search.svg'
 import shoppingIcon from '../assets/icons8-toolbox.svg'
+import { Link, Outlet } from 'react-router-dom';
 
 const NavBar = (props) => {
     return (
@@ -12,10 +13,22 @@ const NavBar = (props) => {
         </div>
         <div id="nav-info-cont" className="nav-bar-cont">
           <div className="nav-misc-cont">
-            <div className="nav-info">CHAMPIONS</div>
+            <Link
+              className="nav-info link-style"
+              to={"/champions"}
+              onClick={props.handleNavClick}
+            >
+              CHAMPIONS
+            </Link>
           </div>
           <div className="nav-misc-cont">
-            <div className="nav-info">Champions</div>
+            <Link
+              className="nav-info link-style"
+              to={"/items"}
+              onClick={props.handleNavClick}
+            >
+              ITEMS
+            </Link>
           </div>
         </div>
         <div id="shopp-cart-info-cont" className="nav-bar-cont">
@@ -35,6 +48,7 @@ const NavBar = (props) => {
             </div>
           </div>
         </div>
+        <Outlet />
       </div>
     );
 }
