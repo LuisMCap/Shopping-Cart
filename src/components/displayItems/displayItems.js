@@ -1,7 +1,7 @@
 import MiscCont from "./MiscCont"
 import Filter from './Filter'
 
-const Criteria = (props) => {
+const DisplayItems = (props) => {
     return (
       <div id="search-comp">
         <MiscCont img={props.img} selectedCategory={props.selectedCategory} />
@@ -10,4 +10,4 @@ const Criteria = (props) => {
     );
 }
 
-export default Criteria
+export default DisplayItems;

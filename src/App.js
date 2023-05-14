@@ -1,11 +1,9 @@
 import './style/index.css'
 import NavBar from "./components/NavBar";
-import { Routes, Route, Outlet } from "react-router-dom";
-import MiscCont from './components/criteria/MiscCont';
-import Criteria from './components/criteria/Criteria';
+import { Routes, Route } from "react-router-dom";
+import DisplayItems from './components/displayItems/displayItems';
 import { useState } from 'react';
 import Utils from './utils/utils';
-import data from "./data.json";
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState('CHAMPIONS');
@@ -25,7 +23,7 @@ function App() {
         <Route
           path="/"
           element={
-            <Criteria
+            <DisplayItems
               img={displayImg}
               selectedCategory={selectedCategory}
               filterBoxesCategory={Utils.championsCategories}
@@ -35,7 +33,7 @@ function App() {
         <Route
           path="/champions"
           element={
-            <Criteria
+            <DisplayItems
               img={displayImg}
               selectedCategory={selectedCategory}
               filterBoxesCategory={Utils.championsCategories}
@@ -45,7 +43,7 @@ function App() {
         <Route
           path="/items"
           element={
-            <Criteria
+            <DisplayItems
               selectedCategory={selectedCategory}
               img={displayImg}
               filterBoxesCategory={Utils.itemsCategory}

@@ -1,4 +1,4 @@
-import FilterBox from "./FilterBox"
+import FilterBox from "./displayCategories/FilterBox"
 
 const Filter = (props) => {
     return (
@@ -11,7 +11,7 @@ const Filter = (props) => {
               );
             })}
           </div>
-          <div id="search-cont"></div>
+          <div id="display-items-cont"></div>
         </div>
       </div>
     );
