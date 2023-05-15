@@ -1,4 +1,3 @@
-import Utils from '../../../utils/utils';
 import CategoryBox from "./categoryBox";
 
 const FilterBox = (props) => {

@@ -1,4 +1,6 @@
+import Utils from "../../utils/utils";
 import FilterBox from "./displayCategories/FilterBox"
+import Card from "./displayShop/card";
 
 const Filter = (props) => {
     return (
@@ -11,7 +13,21 @@ const Filter = (props) => {
               );
             })}
           </div>
-          <div id="display-items-cont"></div>
+          <div id="display-items-cont">
+          {props.isDataReady ? props.champData.map(champ=>{
+            return (
+              <Card
+                img={Utils.createImgLink(champ.image.full)}
+                k={champ.key}
+                price={champ.price}
+                name={champ.id}
+                quant={champ.quantity}
+                increaseQuant={props.increaseQuant}
+                decreaseQuant={props.decreaseQuant}
+              />
+            );
+          }):<p>loading</p>}
+          </div>
         </div>
       </div>
     );

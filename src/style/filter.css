@@ -6,12 +6,11 @@
 }
 
 #filter {
-    height: fit-content;
+    height: min-content;
     width: 30%;
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
-    border: 2px solid black;
 }
 
 #filter-cont{
@@ -19,7 +18,6 @@
 }
 
 #display-items-cont{
-    border: 2px solid black;
     width: 70%;
 }
 
