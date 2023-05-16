@@ -1,87 +1,89 @@
-import itemsImg from '../assets/Shopkeeper_Preseason_2021_Promo_01.webp'
-import leagueImg from '../assets/league-of-legends-01.jpg'
+import itemsImg from "../assets/Shopkeeper_Preseason_2021_Promo_01.webp";
+import leagueImg from "../assets/league-of-legends-01.jpg";
 
 const Utils = (() => {
-    const APIImgLink =
-      "https://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/";
+  const APIImgLink =
+    "https://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/";
 
+  const champRoles = ["Fighter", "Tank", "Mage", "Assassin", "Marksman", "Support"];
     const championsCategories = [
-      {
-        name: "Role",
-        category: [
-          "Fighter",
-          "Tank",
-          "Mage",
-          "Assassin",
-          "Marksman",
-          "Support",
-        ],
-      },
-      {
-        name: "Range",
-        category: ["Melee", "Ranged"],
-      },
-      {
-        name: "Price",
-        category: ["450", "1350", "3150", "4800", "6300"],
-      },
-    ];
+  {
+    name: "Role",
+    options: [
+      { category: "Fighter", active: false },
+      { category: "Tank", active: false },
+      { category: "Mage", active: false },
+      { category: "Assassin", active: false },
+      { category: "Marksman", active: false },
+      { category: "Support", active: false },
+    ],
+  },
+  {
+    name: "Range",
+    options: [
+      { category: "Melee", active: false },
+      { category: "Ranged", active: false },
+    ],
+  },
+  {
+    name: "Price",
+    options: [
+      { category: "450", active: false },
+      { category: "1350", active: false },
+      { category: "3150", active: false },
+      { category: "4800", active: false },
+      { category: "6300", active: false },
+    ],
+  },
+];
 
-    const championsCategorie = [
-      {
-        name: "Role",
-        category: {
-          Fighter: false, 
-          Tank: false,
-          Mage: false,
-          Assassin: false,
-          Marksman: false,
-          Support:false,
-        },
-      },
-      {
-        name: "Range",
-        category: {Melee: false, Ranged:false},
-      },
-      {
-        name: "Price",
-        category: {450:false, 1350:false, 3150:false, 4800:false, 6300:false},
-      },
-    ];
+  const itemsCategory = [
+    {
+      name: "Role",
+      options: [
+        { category: "Fighter", active: false },
+        { category: "Tank", active: false },
+        { category: "Mage", active: false },
+        { category: "Assassin", active: false },
+        { category: "Marksman", active: false },
+        { category: "Support", active: false },
+      ],
+    },
+    {
+      name: "Range",
+      options: [
+        { category: "Melee", active: false },
+        { category: "Ranged", active: false },
+      ],
+    },
+    {
+      name: "Price",
+      options: [
+        { category: "450", active: false },
+        { category: "1350", active: false },
+        { category: "3150", active: false },
+        { category: "4800", active: false },
+        { category: "6300", active: false },
+      ],
+    },
+  ];
 
-    const itemsCategory = [
-      // {
-      //   name: "Role",
-      //   category: [
-      //     "Fighter",
-      //     "Tank",
-      //     "Mage",
-      //     "Assassin",
-      //     "Marksman",
-      //     "Support",
-      //   ],
-      // },
-      {
-        name: "Range",
-        category: ["Melee", "Ranged"],
-      },
-      {
-        name: "Price",
-        category: ["450", "1350", "3150", "4800", "6300"],
-      },
-    ];
+  const imgObject = {
+    CHAMPIONS: leagueImg,
+    ITEMS: itemsImg,
+  };
 
-    const imgObject = {
-        CHAMPIONS: leagueImg,
-        ITEMS: itemsImg
-    }
+  const createImgLink = (championName) => {
+    return APIImgLink + championName;
+  };
 
-    const createImgLink = (championName) => {
-      return APIImgLink + championName
-    }
-
-    return {imgObject, championsCategories, itemsCategory, createImgLink}
+  return {
+    imgObject,
+    championsCategories,
+    itemsCategory,
+    createImgLink,
+    champRoles
+  };
 })();
 
-export default Utils
- 
+export default Utils;
