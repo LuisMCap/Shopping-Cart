@@ -13,22 +13,13 @@ function App() {
   const [isDataReady, setIsDataReady] = useState(false);
   const [displayData, setDisplayData] = useState([])
   const [filterData, setFilterData] = useState(Utils.championsCategories)
+  const [firstTime, setFirstTime] = useState(true)
 
   const handleNavClick = (e) => {
     let text = e.target.textContent;
     setSelectedCategory(text);
     setDisplayImg(Utils.imgObject[text]);
   };
-
-  useEffect(() => {
-    let cleanData = [];
-    for (let champ in dataChamp.data) {
-      cleanData.push(dataChamp.data[champ]);
-    }
-    setChampData(cleanData);
-    setDisplayData(cleanData);
-    setIsDataReady(true);
-  }, []);
 
   const increaseQuant = (e, selectedChampName) => {
     setDisplayData(
@@ -110,7 +101,18 @@ const updateFilterChamp = (e, selectedCategory) => {
   };
 
   useEffect(() => {
-    let displayChamps = [];
+    let displayChamps = []
+    if (firstTime) {
+      let cleanData = [];
+      for (let champ in dataChamp.data) {
+        cleanData.push(dataChamp.data[champ]);
+      }
+      setChampData(cleanData);
+      setDisplayData(cleanData);
+      setIsDataReady(true);
+      setFirstTime(false);
+      return
+    }
     champData.forEach((champ) => {
       let count = 0;
       filterData.forEach((filter) => {
