@@ -19,7 +19,7 @@ const Filter = (props) => {
         </div>
         <div id="display-items-cont">
           {props.isDataReady ? (
-            props.champData.map((champ) => {
+            props.displayData.map((champ) => {
               return (
                 <Card
                   img={Utils.createImgLink(champ.image.full)}

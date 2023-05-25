@@ -7,35 +7,35 @@ const Utils = (() => {
 
   const champRoles = ["Fighter", "Tank", "Mage", "Assassin", "Marksman", "Support"];
     const championsCategories = [
-  {
-    name: "Role",
-    options: [
-      { category: "Fighter", active: false },
-      { category: "Tank", active: false },
-      { category: "Mage", active: false },
-      { category: "Assassin", active: false },
-      { category: "Marksman", active: false },
-      { category: "Support", active: false },
-    ],
-  },
-  {
-    name: "Range",
-    options: [
-      { category: "Melee", active: false },
-      { category: "Ranged", active: false },
-    ],
-  },
-  {
-    name: "Price",
-    options: [
-      { category: "450", active: false },
-      { category: "1350", active: false },
-      { category: "3150", active: false },
-      { category: "4800", active: false },
-      { category: "6300", active: false },
-    ],
-  },
-];
+      {
+        name: "Role",
+        options: [
+          { category: "Fighter", active: false },
+          { category: "Tank", active: false },
+          { category: "Mage", active: false },
+          { category: "Assassin", active: false },
+          { category: "Marksman", active: false },
+          { category: "Support", active: false },
+        ],
+      },
+      {
+        name: "Range",
+        options: [
+          { category: "Melee", active: false },
+          { category: "Ranged", active: false },
+        ],
+      },
+      {
+        name: "Price",
+        options: [
+          { category: "450", active: false },
+          { category: "1350", active: false },
+          { category: "3150", active: false },
+          { category: "4800", active: false },
+          { category: "6300", active: false },
+        ],
+      },
+    ];
 
   const itemsCategory = [
     {

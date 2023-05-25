@@ -13,7 +13,6 @@ function App() {
   const [isDataReady, setIsDataReady] = useState(false);
   const [displayData, setDisplayData] = useState([])
   const [filterData, setFilterData] = useState(Utils.championsCategories)
-  const [currentFilter, setCurrentFilter] = useState({})
 
   const handleNavClick = (e) => {
     let text = e.target.textContent;
@@ -32,9 +31,18 @@ function App() {
   }, []);
 
   const increaseQuant = (e, selectedChampName) => {
+    setDisplayData(
+      displayData.map((champ) => {
+        if (champ.id === selectedChampName) {
+          let newQuant = champ.quantity + 1;
+          return { ...champ, quantity: newQuant };
+        }
+        return champ;
+      })
+    );
     setChampData(
       champData.map((champ) => {
-        if (champ.id == selectedChampName) {
+        if (champ.id === selectedChampName) {
           let newQuant = champ.quantity + 1;
           return { ...champ, quantity: newQuant };
         }
@@ -44,9 +52,23 @@ function App() {
   };
 
   const decreaseQuant = (e, selectedChampName) => {
+    setDisplayData(
+      displayData.map((champ) => {
+        if (champ.id === selectedChampName) {
+          let newQuant = champ.quantity - 1;
+          if (newQuant <= 0) {
+            alert("You cannot put a negative amount");
+            return { ...champ };
+          } else {
+            return { ...champ, quantity: newQuant };
+          }
+        }
+        return champ;
+      })
+    );
     setChampData(
       champData.map((champ) => {
-        if (champ.id == selectedChampName) {
+        if (champ.id === selectedChampName) {
           let newQuant = champ.quantity - 1;
           if (newQuant <= 0) {
             alert("You cannot put a negative amount");
@@ -75,16 +97,14 @@ const updateFilterChamp = (e, selectedCategory) => {
   );
 };
 
-  const howManyChecks = (name) => {
+  const howManyChecks = () => {
     let count = 0;
     filterData.forEach((filter) => {
-      if (filter.name == name) {
         filter.options.forEach((option) => {
           if (option.active) {
             count += 1;
           }
-        });
-      }
+      });
     });
     return count;
   };
@@ -94,20 +114,83 @@ const updateFilterChamp = (e, selectedCategory) => {
     champData.forEach((champ) => {
       let count = 0;
       filterData.forEach((filter) => {
-        if (filter.name == "Role") {
+        if (filter.name === "Role") {
           filter.options.forEach((option) => {
-            champ.tags.forEach(tag=>{
-              if (tag==option.category && option.active &&howManyChecks("Role") >= 2) {
+            champ.tags.forEach((tag) => {
+              if (
+                tag === option.category &&
+                option.active &&
+                howManyChecks() >= 2
+              ) {
                 count += 1;
               }
-              if (tag == option.category && option.active && howManyChecks('Role') == 1) {
+              if (
+                tag === option.category &&
+                option.active &&
+                howManyChecks() === 1
+              ) {
                 displayChamps.push(champ);
               }
-            })
+            });
+          });
+        }
+        if (filter.name === "Price") {
+          filter.options.forEach((option) => {
+            console.log(champ.price, option.category);
+            if (
+              champ.price === option.category &&
+              option.active &&
+              howManyChecks() >= 2
+            ) {
+              count += 1;
+            }
+            if (
+              champ.price === option.category &&
+              option.active &&
+              howManyChecks() === 1
+            ) {
+              displayChamps.push(champ);
+            }
+          });
+        }
+        if (filter.name === "Range") {
+          filter.options.forEach((option) => {
+            if (
+              option.category === "Ranged" &&
+              champ.stats.attackrange >= 400 &&
+              option.active &&
+              howManyChecks() >= 2
+            ) {
+              count += 1;
+            }
+            if (
+              option.category === "Ranged" &&
+              champ.stats.attackrange >= 400 &&
+              option.active &&
+              howManyChecks() === 1
+            ) {
+              displayChamps.push(champ);
+            }
+            if (
+              option.category === "Melee" &&
+              champ.stats.attackrange < 400 &&
+              option.active &&
+              howManyChecks() >= 2
+            ) {
+              count += 1;
+            }
+            if (
+              option.category === "Melee" &&
+              champ.stats.attackrange < 400 &&
+              option.active &&
+              howManyChecks() === 1
+            ) {
+              displayChamps.push(champ);
+            }
           });
         }
       });
-      if (count == howManyChecks("Role")) {
+      if (count === howManyChecks()) {
         displayChamps.push(champ);
       }
     });
@@ -126,11 +209,15 @@ const updateFilterChamp = (e, selectedCategory) => {
               img={displayImg}
               selectedCategory={selectedCategory}
               filterBoxesCategory={filterData}
-              champData={displayData}
+              champData={champData}
+              displayData={displayData}
               isDataReady={isDataReady}
               increaseQuant={increaseQuant}
               decreaseQuant={decreaseQuant}
               updateFilterChamp={updateFilterChamp}
+              filterData={filterData}
+              totalQuant={champData.length}
+              displayedQuant={displayData.length}
             />
           }
         />
@@ -141,11 +228,15 @@ const updateFilterChamp = (e, selectedCategory) => {
               img={displayImg}
               selectedCategory={selectedCategory}
               filterBoxesCategory={filterData}
-              champData={displayData}
+              champData={champData}
+              displayData={displayData}
               isDataReady={isDataReady}
               increaseQuant={increaseQuant}
               decreaseQuant={decreaseQuant}
               updateFilterChamp={updateFilterChamp}
+              filterData={filterData}
+              totalQuant={champData.length}
+              displayedQuant={displayData.length}
             />
           }
         />
@@ -156,21 +247,16 @@ const updateFilterChamp = (e, selectedCategory) => {
               selectedCategory={selectedCategory}
               img={displayImg}
               filterBoxesCategory={Utils.itemsCategory}
+              setDisplayData={setDisplayData}
             />
           }
+        />
+        <Route
+          path="/shopping-cart"
         />
       </Routes>
     </div>
   );
 }
-
-// for (let key in dataChamp.data) {
-//   if (typeof(dataChamp.data[key]) == 'object') {
-//     dataChamp.data[key]['quantity'] = 1
-//   }
-//   else {
-//     // console.log(typeof(dataChamp.data[key]))
-//   };
-// }
 
 export default App;

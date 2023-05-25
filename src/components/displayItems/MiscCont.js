@@ -12,7 +12,9 @@ const MiscCont = (props) => {
             </div>
             <div id="display-quantity-cont">
               <div id="display-quantity" className="display">
-                Showing: 6 products
+                {props.totalQuant == props.displayedQuant
+                  ? `Showing: ${props.totalQuant} products`
+                  : `Showing: ${props.displayedQuant} products out of ${props.totalQuant}`}
               </div>
             </div>
           </div>
