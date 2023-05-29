@@ -1,0 +1,76 @@
+#checkout {
+    width: 90%;
+    padding-top: 5px;
+}
+
+.single-checkout-cont {
+    width: 100%;
+    height: fit-content;
+}
+
+#shopping-cart-info-cont {
+    height: fit-content;
+    margin-bottom: 15px;
+}
+
+.shopping-cart-info {
+    margin-bottom: 6px;
+    font-size: 0.8rem;
+}
+
+#subtotal-cont {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+#amazon-img {
+    width: 30%;
+    height: 50%;
+}
+
+#paypal-img {
+    width: 20%;
+}
+
+#checkout-btn-cont {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.checkout-btn {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn-img-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#amazon {
+    padding-top: 5px;
+    background-color: var(--amazon);
+}
+
+#paypal {
+    background-color: var(--paypal);
+}
+
+#checkout-click {
+    background-color: var(--navbar);
+    color: var(--white);
+}
+
+#continue-shopping-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

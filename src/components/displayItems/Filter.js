@@ -22,6 +22,7 @@ const Filter = (props) => {
             props.displayData.map((champ) => {
               return (
                 <Card
+                  clickAddBtn={props.clickAddBtn}
                   img={Utils.createImgLink(champ.image.full)}
                   k={champ.key}
                   price={champ.price}

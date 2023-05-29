@@ -5,6 +5,7 @@ import DisplayItems from "./components/displayItems/displayItems";
 import { useState, useEffect } from "react";
 import Utils from "./utils/utils";
 import dataChamp from "./dataChampions.json";
+import ShoppingCart from "./components/shopping/ShoppingCart";
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState("CHAMPIONS");
@@ -14,6 +15,7 @@ function App() {
   const [displayData, setDisplayData] = useState([])
   const [filterData, setFilterData] = useState(Utils.championsCategories)
   const [firstTime, setFirstTime] = useState(true)
+  const [cartItems, setCartItems] = useState([]);
 
   const handleNavClick = (e) => {
     let text = e.target.textContent;
@@ -138,7 +140,6 @@ const updateFilterChamp = (e, selectedCategory) => {
         }
         if (filter.name === "Price") {
           filter.options.forEach((option) => {
-            console.log(champ.price, option.category);
             if (
               champ.price === option.category &&
               option.active &&
@@ -200,9 +201,36 @@ const updateFilterChamp = (e, selectedCategory) => {
     setDisplayData(displayChamps);
   }, [filterData]);
 
+  const clickAddBtn = (e, champName, price, quantity, img) => {
+    let item = Utils.createChampCart(champName, price, quantity, img);
+    setCartItems((prevItems) => [...prevItems, item]);
+
+    setDisplayData(
+      displayData.map((champ) => {
+        if (champ.id === champName) {
+          let newQuant = 1;
+          return { ...champ, quantity: newQuant };
+        }
+        return champ;
+      })
+    );
+
+    setChampData(
+      champData.map((champ) => {
+        if (champ.id === champName) {
+          let newQuant = 1;
+          return { ...champ, quantity: newQuant };
+        }
+        return champ;
+      })
+    );
+  };
+
   return (
     <div className="App">
-      <NavBar handleNavClick={handleNavClick} />
+      <NavBar handleNavClick={handleNavClick} 
+        cartItems={cartItems}
+      />
       <Routes>
         <Route
           path="/"
@@ -220,6 +248,7 @@ const updateFilterChamp = (e, selectedCategory) => {
               filterData={filterData}
               totalQuant={champData.length}
               displayedQuant={displayData.length}
+              clickAddBtn={clickAddBtn}
             />
           }
         />
@@ -239,22 +268,17 @@ const updateFilterChamp = (e, selectedCategory) => {
               filterData={filterData}
               totalQuant={champData.length}
               displayedQuant={displayData.length}
+              clickAddBtn={clickAddBtn}
             />
           }
         />
-        <Route
-          path="/items"
-          element={
-            <DisplayItems
-              selectedCategory={selectedCategory}
-              img={displayImg}
-              filterBoxesCategory={Utils.itemsCategory}
-              setDisplayData={setDisplayData}
-            />
-          }
-        />
-        <Route
-          path="/shopping-cart"
+        <Route 
+        path="/shopping-cart" 
+        element={
+          <ShoppingCart
+            
+          />
+        }
         />
       </Routes>
     </div>

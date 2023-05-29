@@ -77,12 +77,18 @@ const Utils = (() => {
     return APIImgLink + championName;
   };
 
+  const createChampCart = (champName, price, quantity, img) => {
+    let item = {name: champName, price: price, quantity: quantity, img: img}
+    return item
+  }
+
   return {
     imgObject,
     championsCategories,
     itemsCategory,
     createImgLink,
-    champRoles
+    champRoles,
+    createChampCart
   };
 })();
 

@@ -19,6 +19,7 @@ const DisplayItems = (props) => {
         increaseQuant={props.increaseQuant}
         decreaseQuant={props.decreaseQuant}
         updateFilterChamp={props.updateFilterChamp}
+        clickAddBtn={props.clickAddBtn}
       />
     </div>
   );

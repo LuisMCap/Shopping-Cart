@@ -3,6 +3,8 @@
 @import 'misc.css';
 @import 'filter.css';
 @import 'card.css';
+@import 'shopping.css';
+@import 'checkout.css';
 
 :root {
     font-family: 'Manrope', sans-serif;
@@ -12,6 +14,8 @@
     --hover-btn: #333333;
     --search-color: #282828;
     --card-color:#282c34;
+    --amazon: #fad676;
+    --paypal: #ffc439
 }
 
 body {
