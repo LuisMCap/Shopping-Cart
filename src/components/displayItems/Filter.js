@@ -28,6 +28,7 @@ const Filter = (props) => {
                   price={champ.price}
                   name={champ.id}
                   quant={champ.quantity}
+                  role={champ.tags}
                   increaseQuant={props.increaseQuant}
                   decreaseQuant={props.decreaseQuant}
                 />

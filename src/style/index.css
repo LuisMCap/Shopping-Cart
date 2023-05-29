@@ -5,6 +5,7 @@
 @import 'card.css';
 @import 'shopping.css';
 @import 'checkout.css';
+@import 'checkoutItem.css';
 
 :root {
     font-family: 'Manrope', sans-serif;
@@ -45,4 +46,9 @@ body {
 
 button {
     font-family: 'Manrope', sans-serif;
+}
+
+.line {
+    border: 1px solid #dcdee0;
+    width: 90%;
 }

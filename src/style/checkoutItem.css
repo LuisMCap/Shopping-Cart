@@ -1,0 +1,70 @@
+.item-to-buy {
+    height: 250px;
+    width: 100%;
+    display: flex;
+}
+
+.item-to-buy-cont {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.item-img-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+}
+
+.item-to-buy-info-cont {
+    width: 75%;
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 5px;
+}
+
+.item-to-buy-info {
+    width: 94%;
+    height: fit-content;
+}
+
+.remove {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.item-info-title {
+    font-size: 1.6rem;
+}
+
+.role-champ-info {
+    display: flex;
+    align-items: flex-end;
+}
+
+.role-title {
+    margin-right: 3px;
+}
+
+.inc-dec-item-checkout-cont {
+    display: flex;
+}
+
+.inc-dec-item-checkout {
+    border: 1px solid #dcdee0;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-checkout-btn {
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.remove {
+    cursor: pointer;
+}
+

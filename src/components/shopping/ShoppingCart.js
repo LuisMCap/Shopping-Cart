@@ -1,5 +1,7 @@
 import '../../style/index.css'
 import Checkout from './Checkout';
+import CheckoutItem from './CheckoutItem';
+import Utils from '../../utils/utils';
 
 const ShoppingCart = (props) => {
     return (
@@ -10,13 +12,25 @@ const ShoppingCart = (props) => {
           </div>
           <div id="display-shop-cont">
             <div id="items-to-buy-cont">
-              <div className="items-to-buy">
-                <span className="line"></span>
-                <div className="item-to-buy"></div>
-              </div>
+            {props.cartItems.map(item=>{
+                let name = Utils.makeUpperCase(item.name)
+                return (
+                  <CheckoutItem
+                    name={name}
+                    price={item.price}
+                    quantity={item.quantity}
+                    img={item.img}
+                    role={item.role}
+                    total={item.total}
+                    setCartItems={props.setCartItems}
+                  />
+                );
+            })}
             </div>
             <div id="checkout-cont">
-              <Checkout />
+              <Checkout 
+                cartItems={props.cartItems}
+              />
             </div>
           </div>
         </div>

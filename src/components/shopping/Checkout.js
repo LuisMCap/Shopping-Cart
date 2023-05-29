@@ -1,14 +1,25 @@
+import { useState, useEffect } from 'react';
 import amazonImg from '../../assets/177px-Amazon_Pay_logo.svg.png'
 import paypalImg from "../../assets/PayPal.svg.png";
 import { Link } from "react-router-dom";
 
 const Checkout = (props) => {
+    const [totalPrice, setTotalPrice] = useState(0)
+
+    useEffect(() => {
+        let newPrice = 0
+        props.cartItems.forEach(item=>{
+            newPrice += item.total
+        })
+        setTotalPrice(newPrice)
+    }, [props.cartItems]);
+
     return (
       <div id="checkout">
         <div id="shopping-cart-info-cont" className="single-checkout-cont">
           <div className="shopping-cart-info" id="subtotal-cont">
             <div id="subtotal-title">Subtotal</div>
-            <div id="subtotal-price">$279.00</div>
+            <div id="subtotal-price">{totalPrice}</div>
           </div>
           <div className="shopping-cart-info" id="taxes-info-cont">
             <div id="taxes-info">Taxes and shipping will be calculated at checkout</div>

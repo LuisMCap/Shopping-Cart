@@ -77,9 +77,22 @@ const Utils = (() => {
     return APIImgLink + championName;
   };
 
-  const createChampCart = (champName, price, quantity, img) => {
-    let item = {name: champName, price: price, quantity: quantity, img: img}
+  const createChampCart = (champName, price, quantity, img, roles) => {
+    let item = {name: champName, price: price, quantity: quantity, img: img, role: roles, total: price}
     return item
+  }
+
+  const loopRoles = (roles) => {
+    if (roles.length == 1) {
+      return roles[0]
+    }
+    let role = ''
+    role = roles.join(', ')
+    return role
+  }
+
+  const makeUpperCase = (str) => {
+    return str.toUpperCase()
   }
 
   return {
@@ -88,7 +101,9 @@ const Utils = (() => {
     itemsCategory,
     createImgLink,
     champRoles,
-    createChampCart
+    createChampCart,
+    loopRoles,
+    makeUpperCase
   };
 })();
 

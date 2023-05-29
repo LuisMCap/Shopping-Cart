@@ -22,7 +22,7 @@ const Card = (props) => {
           </button>
         </div>
         <div className="add-card-cont">
-          <button className="add-card-btn" onClick={(e,)=> props.clickAddBtn(e, props.name, props.price, props.quant, props.img)}>Add</button>
+          <button className="add-card-btn" onClick={(e,)=> props.clickAddBtn(e, props.name, props.price, props.quant, props.img, props.role)}>Add</button>
         </div>
       </div>
       <div className="price-cont">

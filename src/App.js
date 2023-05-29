@@ -201,9 +201,28 @@ const updateFilterChamp = (e, selectedCategory) => {
     setDisplayData(displayChamps);
   }, [filterData]);
 
-  const clickAddBtn = (e, champName, price, quantity, img) => {
-    let item = Utils.createChampCart(champName, price, quantity, img);
-    setCartItems((prevItems) => [...prevItems, item]);
+  const clickAddBtn = (e, champName, price, quantity, img, roles) => {
+    let role = Utils.loopRoles(roles)
+    let item = Utils.createChampCart(champName, price, quantity, img, role);
+    setCartItems((prevItems) => {
+      const existingItem = prevItems.find(
+        (prevItem) => prevItem.name === champName
+      );
+
+      if (existingItem) {
+        const updatedItems = prevItems.map((prevItem) => {
+          if (prevItem.name === champName) {
+            const newQuant = prevItem.quantity + quantity;
+            return { ...prevItem, quantity: newQuant };
+          }
+          return prevItem;
+        });
+
+        return updatedItems;
+      } else {
+        return [...prevItems, item];
+      }
+    });
 
     setDisplayData(
       displayData.map((champ) => {
@@ -276,7 +295,8 @@ const updateFilterChamp = (e, selectedCategory) => {
         path="/shopping-cart" 
         element={
           <ShoppingCart
-            
+            cartItems={cartItems}
+            setCartItems={setCartItems}
           />
         }
         />
