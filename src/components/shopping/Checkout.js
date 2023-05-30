@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import amazonImg from '../../assets/177px-Amazon_Pay_logo.svg.png'
+import amazonImg from '../../assets/Amazon.png'
 import paypalImg from "../../assets/PayPal.svg.png";
 import { Link } from "react-router-dom";
 
