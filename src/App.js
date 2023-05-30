@@ -294,7 +294,7 @@ const updateFilterChamp = (e, selectedCategory) => {
           }
         />
         <Route 
-        path="/shopping-cart" 
+        path="/cart" 
         element={
           <ShoppingCart
             cartItems={cartItems}

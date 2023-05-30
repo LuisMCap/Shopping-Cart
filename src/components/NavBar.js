@@ -49,7 +49,7 @@ const NavBar = (props) => {
             />
           </div>
           <div id="cart-logo-cont" className="info-cart">
-            <Link id="cart-icon-cont" className="cart-icon-cont" to={"/shopping-cart"}>
+            <Link id="cart-icon-cont" className="cart-icon-cont" to={"/cart"}>
               <img src={shoppingIcon} id="shopping-icon" />
               <div id="cart-count">{cartQuant}</div>
             </Link>
