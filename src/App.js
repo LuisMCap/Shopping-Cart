@@ -252,7 +252,7 @@ const updateFilterChamp = (e, selectedCategory) => {
       <NavBar handleNavClick={handleNavClick} cartItems={cartItems} />
       <Routes>
         <Route
-          path="/Shopping-Cart"
+          path="/"
           element={
             <DisplayItems
               img={displayImg}
