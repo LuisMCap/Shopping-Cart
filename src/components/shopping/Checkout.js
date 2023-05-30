@@ -14,6 +14,14 @@ const Checkout = (props) => {
         setTotalPrice(newPrice)
     }, [props.cartItems]);
 
+      const handleCheckoutClick = (e) => {
+        if (props.cartItems.length === 0) {
+          alert("You don't have a champion in the car")
+          return
+        }
+        props.setOpenModal(true);
+      };
+
     return (
       <div id="checkout">
         <div id="shopping-cart-info-cont" className="single-checkout-cont">
@@ -22,20 +30,34 @@ const Checkout = (props) => {
             <div id="subtotal-price">{totalPrice}</div>
           </div>
           <div className="shopping-cart-info" id="taxes-info-cont">
-            <div id="taxes-info">Taxes and shipping will be calculated at checkout</div>
+            <div id="taxes-info">
+              Taxes and shipping will be calculated at checkout
+            </div>
           </div>
           <div className="shopping-cart-info" id="currency-info-cont">
             <div id="currency-info">Orders will be processed in IP</div>
           </div>
         </div>
         <div id="checkout-btn-cont" className="single-checkout-cont">
-          <button className="checkout-btn" id="checkout-click">
+          <button
+            className="checkout-btn"
+            id="checkout-click"
+            onClick={handleCheckoutClick}
+          >
             CHECKOUT
           </button>
-          <button className="checkout-btn btn-img-btn" id="amazon">
+          <button
+            className="checkout-btn btn-img-btn"
+            id="amazon"
+            onClick={handleCheckoutClick}
+          >
             <img src={amazonImg} id="amazon-img" className="btn-img" />
           </button>
-          <button className="checkout-btn btn-img-btn" id="paypal">
+          <button
+            className="checkout-btn btn-img-btn"
+            id="paypal"
+            onClick={handleCheckoutClick}
+          >
             <img src={paypalImg} id="paypal-img" className="btn-img" />
           </button>
         </div>

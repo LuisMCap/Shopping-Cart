@@ -1,0 +1,57 @@
+.modal-bg {
+    height: 200vh;
+    width: 100vw;
+    background-color: rgba(92, 92, 92, 0.75);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal-cont {
+    height: 140px;
+    width: 300px;
+    background-color: var(--white);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+}
+
+#close-btn-modal-cont {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    height: 15%;
+}
+
+#close-modal-btn {
+    height: 25px;
+    background-color: var(--white);
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#thank-you-prompt-modal {
+    height: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+#confirm-close-modal-cont {
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#confirm-modal-btn {
+    height: 40px;
+    width: 80px;
+    background-color: var(--navbar);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

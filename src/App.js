@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import Utils from "./utils/utils";
 import dataChamp from "./dataChampions.json";
 import ShoppingCart from "./components/shopping/ShoppingCart";
+import ModalCheckout from "./components/shopping/ModalCheckout";
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState("CHAMPIONS");
@@ -16,6 +17,7 @@ function App() {
   const [filterData, setFilterData] = useState(Utils.championsCategories)
   const [firstTime, setFirstTime] = useState(true)
   const [cartItems, setCartItems] = useState([]);
+  const [openModal, setOpenModal] = useState(true)
 
   const handleNavClick = (e) => {
     let text = e.target.textContent;

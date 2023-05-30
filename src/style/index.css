@@ -6,6 +6,7 @@
 @import 'shopping.css';
 @import 'checkout.css';
 @import 'checkoutItem.css';
+@import 'modal.css';
 
 :root {
     font-family: 'Manrope', sans-serif;

@@ -2,8 +2,12 @@ import '../../style/index.css'
 import Checkout from './Checkout';
 import CheckoutItem from './CheckoutItem';
 import Utils from '../../utils/utils';
+import ModalCheckout from './ModalCheckout';
+import { useState } from 'react';
 
 const ShoppingCart = (props) => {
+  const [openModal, setOpenModal] = useState(false)
+
     return (
       <div id="shopping-cart">
         <div className="page-width" id="shop-cont">
@@ -12,8 +16,8 @@ const ShoppingCart = (props) => {
           </div>
           <div id="display-shop-cont">
             <div id="items-to-buy-cont">
-            {props.cartItems.map(item=>{
-                let name = Utils.makeUpperCase(item.name)
+              {props.cartItems.map((item) => {
+                let name = Utils.makeUpperCase(item.name);
                 return (
                   <CheckoutItem
                     name={name}
@@ -25,15 +29,22 @@ const ShoppingCart = (props) => {
                     setCartItems={props.setCartItems}
                   />
                 );
-            })}
+              })}
             </div>
             <div id="checkout-cont">
-              <Checkout 
+              <Checkout
                 cartItems={props.cartItems}
+                setOpenModal={setOpenModal}
               />
             </div>
           </div>
         </div>
+        {openModal && (
+          <ModalCheckout
+            setOpenModal={setOpenModal}
+            setCartItems={props.setCartItems}
+          />
+        )}
       </div>
     );
 }
