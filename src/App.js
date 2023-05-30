@@ -249,12 +249,10 @@ const updateFilterChamp = (e, selectedCategory) => {
 
   return (
     <div className="App">
-      <NavBar handleNavClick={handleNavClick} 
-        cartItems={cartItems}
-      />
+      <NavBar handleNavClick={handleNavClick} cartItems={cartItems} />
       <Routes>
         <Route
-          path="/"
+          path="/Shopping-Cart"
           element={
             <DisplayItems
               img={displayImg}
@@ -293,14 +291,11 @@ const updateFilterChamp = (e, selectedCategory) => {
             />
           }
         />
-        <Route 
-        path="/cart" 
-        element={
-          <ShoppingCart
-            cartItems={cartItems}
-            setCartItems={setCartItems}
-          />
-        }
+        <Route
+          path="/cart"
+          element={
+            <ShoppingCart cartItems={cartItems} setCartItems={setCartItems} />
+          }
         />
       </Routes>
     </div>
